@@ -2,20 +2,18 @@
 
 ;; Author: Stephen Nehrbass
 ;; Version: 0.1
-;; Package-Requires: ((emacs "24"))
 ;; Keywords: zalgo, fun
 ;; URL: https://github.com/nehrbash/zalgo-mode.git
 
 ;;; Commentary:
 ;; This minor mode transforms text into Zalgo text by adding
 ;; combining diacritical marks (accents, tilde, etc.) to make it
-;; look "glitchy" or corrupted.
+;; look glitchy or corrupted.
 ;;
 ;; To enable the mode, use:
 ;; M-x zalgo-mode
 ;;
-;; You can configure the maximum number of Zalgo characters added
-;; and the level of randomness.
+;; You can configure the maximum number of Zalgo characters added.
 
 ;;; Code:
 
