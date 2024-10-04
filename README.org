@@ -1,6 +1,6 @@
 #+TITLE: Zalgo Mode
 
-An Emacs mode for "zalgo" text. Zalgo text combines diacritical marks (accents, tilde, etc.) to make it look "glitchy" or corrupted.
+An Emacs mode for "zalgo" text. Zalgo text combines diacritical marks (accents, tilde, etc.) to make it look glitchy or corrupted.
 
 * Example configuration
 
@@ -11,7 +11,7 @@ An Emacs mode for "zalgo" text. Zalgo text combines diacritical marks (accents, 
     ;; alternativly locally clone and load.
     ;; :load-path "~/src/zalgo-mode"
     :bind
-    ("C-c z z" . zalgo-mode) ;; minor mode for typeing zalgo
+    ("C-c z z" . zalgo-mode) ;; minor mode for typing zalgo text
     ("C-c z r" . zalgo-transform-region)
     ("C-c z w" . zalgo-transform-word)
   :custom
