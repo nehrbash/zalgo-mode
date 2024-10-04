@@ -1,0 +1,17 @@
+#+TITLE: Zalgo Mode
+
+An Emacs mode for `zalgo' text. Zalgo text combines diacritical marks (accents, tilde, etc.) to make it look "glitchy" or corrupted.
+
+* Example configuration
+
+  #+begin_src emacs-lisp
+  (use-package zalgo-mode
+    :ensure (:host github :repo "nehrbash/zalgo-mode")
+    :bind
+    ("C-c z" . zalgo-mode) ;; minor mode for typeing zalgo
+    ("C-c C-z" . zalgo-transform-region)
+  :custom
+  (zalgo-max-up 5)
+  (zalgo-max-mid 3)
+  (zalgo-max-down 5))
+#+end_src
