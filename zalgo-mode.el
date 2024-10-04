@@ -63,18 +63,20 @@
   (elt lst (random (length lst))))
 
 (defun zalgoify-char (char)
-  "Add Zalgo diacritical marks to CHAR."
-  (let ((zalgo-text (char-to-string char)))
-    ;; Random up characters
-    (dotimes (_ (1+ (random zalgo-max-up)))
-      (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-up))))
-    ;; Random mid characters
-    (dotimes (_ (random zalgo-max-mid))
-      (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-mid))))
-    ;; Random down characters
-    (dotimes (_ (1+ (random zalgo-max-down)))
-      (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-down))))
-    zalgo-text))
+  "Add Zalgo diacritical marks to CHAR, skipping newline characters."
+  (if (eq char ?\n)
+      (char-to-string char)  ;; Return the newline character unchanged
+    (let ((zalgo-text (char-to-string char)))
+      ;; Random up characters
+      (dotimes (_ (1+ (random zalgo-max-up)))
+        (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-up))))
+      ;; Random mid characters
+      (dotimes (_ (random zalgo-max-mid))
+        (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-mid))))
+      ;; Random down characters
+      (dotimes (_ (1+ (random zalgo-max-down)))
+        (setq zalgo-text (concat zalgo-text (zalgo-random-element zalgo-down))))
+      zalgo-text)))
 
 (defun zalgo-transform-text (text)
   "Transform TEXT into Zalgo text."
