@@ -1,10 +1,10 @@
 ;;; zalgo-mode.el --- Minor mode for typing Zalgo text
 
-;; Author: Your Name
-;; Version: 0.2
+;; Author: Stephen Nehrbass
+;; Version: 0.1
 ;; Package-Requires: ((emacs "24"))
 ;; Keywords: zalgo, fun
-;; URL: https://your-github-url
+;; URL: https://github.com/nehrbash/zalgo-mode.git
 
 ;;; Commentary:
 ;; This minor mode transforms text into Zalgo text by adding
@@ -66,18 +66,24 @@
   "Transform text inserted between BEG and END into Zalgo text."
   (when zalgo-mode
     (let ((zalgo-text (zalgo-transform-text (buffer-substring beg end))))
-      (save-excursion
-        (delete-region beg end)
-        (goto-char beg)
-        (insert zalgo-text)))))
+      ;; Delete the original region and insert the Zalgo text
+      (delete-region beg end)
+      (goto-char beg)
+      (insert zalgo-text)
+      ;; Move cursor to the end of inserted text
+      (goto-char (point)))))
+
+(defun zalgo-transform-word ()
+  "Transform the current word into Zalgo text."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (when bounds
+      (zalgo-transform-region (car bounds) (cdr bounds)))))
 
 ;;;###autoload
 (define-minor-mode zalgo-mode
   "Minor mode for typing Zalgo text."
   :lighter " Zalgo"
-  :keymap (let ((map (make-sparse-keymap)))
-            (define-key map (kbd "C-c z r") 'zalgo-transform-region)
-            map)
   (if zalgo-mode
       ;; Enable the mode
       (progn

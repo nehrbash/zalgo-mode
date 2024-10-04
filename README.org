@@ -1,17 +1,29 @@
 #+TITLE: Zalgo Mode
 
-An Emacs mode for `zalgo' text. Zalgo text combines diacritical marks (accents, tilde, etc.) to make it look "glitchy" or corrupted.
+An Emacs mode for "zalgo" text. Zalgo text combines diacritical marks (accents, tilde, etc.) to make it look "glitchy" or corrupted.
 
 * Example configuration
 
   #+begin_src emacs-lisp
   (use-package zalgo-mode
+    ;; elpaca package manager https://github.com/progfolio/elpaca
     :ensure (:host github :repo "nehrbash/zalgo-mode")
+    ;; alternativly locally clone and load.
+    ;; :load-path "~/src/zalgo-mode"
     :bind
-    ("C-c z" . zalgo-mode) ;; minor mode for typeing zalgo
-    ("C-c C-z" . zalgo-transform-region)
+    ("C-c z z" . zalgo-mode) ;; minor mode for typeing zalgo
+    ("C-c z r" . zalgo-transform-region)
+    ("C-c z w" . zalgo-transform-word)
   :custom
   (zalgo-max-up 5)
   (zalgo-max-mid 3)
   (zalgo-max-down 5))
 #+end_src
+
+* Example output
+
+  1. Emacs GUI interface is a weird in-between of TUI and GUI.
+
+     E̝ͬ̔ͯ͒m͖͈̯̰͖̅̓a̲̯̻ͨ̾c̹̰̝͇͛ͥ͟s̹͈̬̻ͭ̿̿̅͜ ̨̯͒̽G̱͛͌ͥ͜U͖ͪ̓͘I̗ͬ͌̓͑͜ ̻͐͋̍͜i̗ͨ̎͌̀n͕̝̞͖̫̾ͩ͜t̙̞̝̰͗͑͑͋̔͟͜e̻̺͖͕̽̒͊r͕̎̒̿͞͞f̮͗a͔̳̰͗͊ͪ̽ͯ́c̪͖̮ͣ̓̈́̿̎e̢̥͉̩̜̙̎ͩ͆͗͌ ̮̼̲̳͈ͪͪ̿̿̒̀͠i̲̰̙̾ͭ̓͐̍s͓͛̒ ̜̰̘͑a̧͕͈̪̅͑͆͑ ̸͍͈̍w̵̙̻̩̤ͮͪ͌́e̬ͥi̛͖ͩr̟̹̮̺͓͊͌ͨ̑̽͝d̛͈̫ͭ͐̀ ̧̘ͫi̢̯͎̮͍̽n͓͈͔̻̾͊-̹̗͒ͩ͌b̧͓ͨ̅͟ȩ͇̺̫̾͋̿̀t̠̥̠̦̪̒w̠ͯ̕e͔̒̽̒ḛ̙ͬ̎ͮͯn̴̦̟̭̍̿ ̢̖ͭ͠o͎̓̅̕͜f̢̳̫̯̙̈́̄̕ ͕̫̯̻̮̒͒͝T̪̖͒͑͋̽U̸͓͔̯͍̅̽̑̓̽I̛̤̟ͪ̑͟ ̛͖̰͉ͭ̄ͯ̾a̡͍̜̬͎̔n̫̲̻͇ͮ͋d̸̗͓̪̜͒ ̩̖̗̙ͪ͐ͥ̑͢͝G̵̜ͮU̸̧̯̎ͨ̍̎ͭI̢͒̈́ͅ.͖̝ͫ͛ͮ͢͞
+
+
