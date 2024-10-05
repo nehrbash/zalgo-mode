@@ -93,6 +93,7 @@
       ;; Move cursor to the end of inserted text
       (goto-char (point)))))
 
+;;;###autoload
 (defun zalgo-transform-word ()
   "Transform the current word into Zalgo text."
   (interactive)
@@ -113,6 +114,7 @@
     (remove-hook 'after-change-functions 'zalgo-after-insert t)
     (message "Zalgo mode disabled.")))
 
+;;;###autoload
 (defun zalgo-transform-region (start end)
   "Transform the text between START and END into Zalgo text."
   (interactive "r")
